@@ -91,9 +91,9 @@ class ConstrainInput:
         axLP.grid()
         axPE.grid()
 
-        figLE.legend()
-        figLP.legend()
-        figPE.legend()
+        #figLE.legend()
+        #figLP.legend()
+        #figPE.legend()
 
         figLE.savefig("LE" + str(number) + ".pdf", bbox_inches='tight')
         figLP.savefig("LP" + str(number) + ".pdf", bbox_inches='tight')
