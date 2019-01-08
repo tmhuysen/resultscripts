@@ -65,7 +65,8 @@ class ConstrainInput:
         for files in source:
             if files.endswith(".output"):
                 q.append(self.readout(os.path.join(outpat, files)))
-                yy.append(files)
+                x = files.split("_")
+                yy.append(x)
 
         figLE, axLE = plt.subplots()
         figLP, axLP = plt.subplots()
@@ -81,7 +82,7 @@ class ConstrainInput:
 
         counter = 0
         for p in q:
-            labelv = str(yy[counter])
+            labelv = str(yy[counter][1])
             axLE.plot(p[1],p[0],label = labelv)
             axLP.plot(p[1],p[2],label = labelv)
             axPE.plot(p[2],p[0],label = labelv)
@@ -91,9 +92,9 @@ class ConstrainInput:
         axLP.grid()
         axPE.grid()
 
-        #figLE.legend()
-        #figLP.legend()
-        #figPE.legend()
+        figLE.legend()
+        figLP.legend()
+        figPE.legend()
 
         figLE.savefig("LE" + str(number) + ".pdf", bbox_inches='tight')
         figLP.savefig("LP" + str(number) + ".pdf", bbox_inches='tight')
